@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import LoginContext from "../../context/loginContext";
 import { UserContext } from "@/context/UsersContext";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const UserLogin = () => {
   const router = useRouter();
@@ -75,23 +75,23 @@ const UserLogin = () => {
         setUser(json.user);
 
         Swal.fire({
-          title: 'Se Inició Sesión Correctamente!',
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
+          title: "Se Inició Sesión Correctamente!",
+          icon: "success",
+          confirmButtonText: "Aceptar",
         });
         router.push("/Dashboard");
       } else {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Algo Salió Mal!"
+          text: "Algo Salió Mal!",
         });
       }
     } catch (error) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Usuario O Contraseña Incorrectos!"
+        text: "Usuario O Contraseña Incorrectos!",
       });
     }
   };
@@ -106,10 +106,10 @@ const UserLogin = () => {
             className="mr-[2rem] ml-[2rem] xl:w-[350px] rounded-xl shadow-[101px_150px_110px_120px_rgba(0,101,196,1)] overflow-hidden p-8 space-y-8"
           >
             <h2 className="text-center text-4xl font-extrabold text-white">
-              Welcome
+              Bienvenido
             </h2>
             <p className="text-center text-gray-200">
-              Sign in to your account
+              Inicia sesión en tu cuenta
             </p>
             <form onSubmit={handleOnSubmit} className="space-y-6">
               <div className="relative">
@@ -128,7 +128,7 @@ const UserLogin = () => {
                   className="absolute left-0 -top-3.5 text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-300 peer-focus:text-sm"
                   htmlFor="email"
                 >
-                  Email address
+                  Correo Electrónico
                 </label>
                 {isTouched.email && errors.email && <p>{errors.email}</p>}
               </div>
@@ -148,7 +148,7 @@ const UserLogin = () => {
                   className="absolute left-0 -top-3.5 text-gray-200 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-300 peer-focus:text-sm"
                   htmlFor="password"
                 >
-                  Password
+                  Contraseña
                 </label>
                 {isTouched.password && errors.password && (
                   <p>{errors.password}</p>
@@ -158,13 +158,16 @@ const UserLogin = () => {
                 className="w-full py-2 px-4 bg-purple-500 hover:bg-purple-700 rounded-md shadow-lg text-white font-semibold transition duration-200"
                 type="submit"
               >
-                Sign In
+                Iniciar Sesión
               </button>
             </form>
             <div className="flex justify-center gap-3 text-sm text-center text-gray-300">
-              Don&apos;t have an account?
-              <Link href="/Register" className="text-purple-100 hover:underline">
-                Sign up
+              No tienes una cuenta?
+              <Link
+                href="/Register"
+                className="text-purple-100 hover:underline"
+              >
+                Registrate!
               </Link>
             </div>
           </div>

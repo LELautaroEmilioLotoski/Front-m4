@@ -103,13 +103,13 @@ const UserRegister = () => {
               style={{ animation: "appear 2s ease-out" }}
               className="text-center text-4xl font-extrabold text-white"
             >
-              Welcome
+              Bienvenido!
             </h2>
             <p
               style={{ animation: "appear 3s ease-out" }}
               className="text-center text-gray-200"
             >
-              Sign in to your account
+              Registrate Gratis!
             </p>
             <form
               method="POST"
@@ -132,7 +132,7 @@ const UserRegister = () => {
                   className="absolute left-0 -top-3.5 text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-300 peer-focus:text-sm"
                   htmlFor="email"
                 >
-                  Name
+                  Nombre
                 </label>
                 {isTouched.name && errors.name && <p>{errors.name}</p>}
               </div>
@@ -151,7 +151,7 @@ const UserRegister = () => {
                   className="absolute left-0 -top-3.5 text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-300 peer-focus:text-sm"
                   htmlFor="email"
                 >
-                  Address
+                  Direccion
                 </label>
                 {isTouched.address && errors.address && <p>{errors.address}</p>}
               </div>
@@ -170,7 +170,7 @@ const UserRegister = () => {
                   className="absolute left-0 -top-3.5 text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-300 peer-focus:text-sm"
                   htmlFor="email"
                 >
-                  Phone
+                  Teléfono
                 </label>
                 {isTouched.phone && errors.phone && <p>{errors.phone}</p>}
               </div>
@@ -189,7 +189,7 @@ const UserRegister = () => {
                   className="absolute left-0 -top-3.5 text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-300 peer-focus:text-sm"
                   htmlFor="email"
                 >
-                  Email address
+                  Correo Electrónico
                 </label>
                 {isTouched.email && errors.email && <p>{errors.email}</p>}
               </div>
@@ -208,7 +208,7 @@ const UserRegister = () => {
                   className="absolute left-0 -top-3.5 text-gray-200 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-300 peer-focus:text-sm"
                   htmlFor="password"
                 >
-                  Password
+                  Contraseña
                 </label>
                 {isTouched.password && errors.password && (
                   <p>{errors.password}</p>

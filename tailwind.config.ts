@@ -11,10 +11,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
+        customBackground: 'rgb(29, 35, 42)', // Usa un nombre único para evitar conflictos
         foreground: "var(--foreground)",
       },
     },
+    
   },
   plugins: [
     require('daisyui')
