@@ -4,13 +4,15 @@ const getProductsUrl = process.env.NEXT_PUBLIC_API_URL_GET_PRODUCTS;
 
 export async function fetchProducts(): Promise<IProducts[]> {
   try {
+    const response = await fetch(getProductsUrl as string, {
+      next: { revalidate: 100 },
+    });
+
+
     if (!getProductsUrl) {
       throw new Error("API URL for products is not defined");
     }
 
-    const response = await fetch(getProductsUrl, { // <-- `toString` podría ser innecesario
-      next: { revalidate: 100 },
-    });
 
     if (!response.ok) {
       throw new Error(`API responded with status: ${response.status}`);
