@@ -4,8 +4,8 @@ import { fetchProducts } from "../../helpers/getProducts";
 import Link from "next/link";
 
 const Products = async () => {
-  try {
-    const getProducts = await fetchProducts();
+  const getProducts = await fetchProducts();
+  if(getProducts.length > 0) {
 
     if (!getProducts || getProducts.length === 0) {
       return <div>Error loading products. Please try again later.</div>;
@@ -29,8 +29,7 @@ const Products = async () => {
         </div>
       </div>
     );
-  } catch (error) {
-    console.error("Error loading products:", error);
+  } else {
     return <div>Error loading products. Please try again later.</div>;
   }
 };
