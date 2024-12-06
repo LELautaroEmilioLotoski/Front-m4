@@ -3,8 +3,12 @@ import IProducts from "@/interfaces/IProducts";
 const getProductsUrl = process.env.NEXT_PUBLIC_API_URL_GET_PRODUCTS;
 
 export async function fetchProducts(): Promise<IProducts[]> {
-  try {    
-    const response = await fetch(getProductsUrl as string, {
+  try {
+    if (!getProductsUrl) {
+      throw new Error("API URL for products is not defined");
+    }
+
+    const response = await fetch(getProductsUrl, { // <-- `toString` podría ser innecesario
       next: { revalidate: 100 },
     });
 
@@ -19,6 +23,7 @@ export async function fetchProducts(): Promise<IProducts[]> {
     throw new Error("Error fetching products");
   }
 }
+
 
   
 export async function fetchProduct(id: number): Promise<IProducts> {
