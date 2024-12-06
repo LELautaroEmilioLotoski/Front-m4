@@ -3,12 +3,8 @@ import IProducts from "@/interfaces/IProducts";
 const getProductsUrl = process.env.NEXT_PUBLIC_API_URL_GET_PRODUCTS;
 
 export async function fetchProducts(): Promise<IProducts[]> {
-  try {
-    if (!getProductsUrl) {
-      throw new Error("API URL for products is not defined");
-    }
-    
-    const response = await fetch(getProductsUrl, {
+  try {    
+    const response = await fetch(getProductsUrl as string, {
       next: { revalidate: 100 },
     });
 
