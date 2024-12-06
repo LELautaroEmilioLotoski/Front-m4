@@ -4,7 +4,14 @@ import { fetchProducts } from "../../helpers/getProducts";
 import Link from "next/link";
 
 const Products = async () => {
-  const getProducts = await fetchProducts();
+  let getProducts = [];
+
+  try {
+    getProducts = await fetchProducts();
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return <div>Error loading products. Please try again later.</div>;
+  }
 
   return (
     <div className="min-h-screen">
@@ -26,5 +33,6 @@ const Products = async () => {
     </div>
   );
 };
+
 
 export default Products;

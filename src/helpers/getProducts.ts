@@ -8,11 +8,16 @@ export async function fetchProducts(): Promise<IProducts[]> {
       next: { revalidate: 100 },
     });
 
+    if (!response.ok) {
+      throw new Error(`Failed to fetch, status: ${response.status}`);
+    }
+
     const res: IProducts[] = await response.json();
 
     return res;
   } catch (error) {
-    throw Error("Error");
+    console.error("Error fetching products:", error);
+    throw new Error("Error fetching products");
   }
 }
 
