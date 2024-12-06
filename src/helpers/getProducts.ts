@@ -3,23 +3,27 @@ import IProducts from "@/interfaces/IProducts";
 const getProductsUrl = process.env.NEXT_PUBLIC_API_URL_GET_PRODUCTS;
 
 export async function fetchProducts(): Promise<IProducts[]> {
-    try {
-      const response = await fetch(getProductsUrl as string, {
-        next: { revalidate: 100 },
-      });
-  
-      if (!response.ok) {
-        throw new Error(`Failed to fetch, status: ${response.status}`);
-      }
-  
-      const res: IProducts[] = await response.json();
-  
-      return res;
-    } catch (error) {
-      console.error("Error fetching products:", error);
-      throw new Error("Error fetching products");
+  try {
+    if (!getProductsUrl) {
+      throw new Error("API URL for products is not defined");
     }
+    
+    const response = await fetch(getProductsUrl, {
+      next: { revalidate: 100 },
+    });
+
+    if (!response.ok) {
+      throw new Error(`API responded with status: ${response.status}`);
+    }
+
+    const res: IProducts[] = await response.json();
+    return res;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    throw new Error("Error fetching products");
   }
+}
+
   
 export async function fetchProduct(id: number): Promise<IProducts> {
   try {
