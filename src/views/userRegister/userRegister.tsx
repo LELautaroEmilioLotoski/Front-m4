@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { validateLogin, validateRegister } from "@/helpers/validate";
+import { validateRegister } from "@/helpers/validate";
 import Swal from "sweetalert2";
 
 const UserRegister = () => {
