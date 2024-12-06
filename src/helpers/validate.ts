@@ -28,10 +28,6 @@ export const validateRegister = (input: RegisterInput) => {
         password: ""
     }
 
-    if(!regex.username.test(input.name)){
-        errors.email = "Nombre de usuario inválido"
-    }
-
     if(!regex.password.test(input.password)){
         errors.password = "La contraseña debe tener al menos 8 caracteres, una letra y un número"
     }
@@ -51,10 +47,6 @@ export const validateLogin = (input: LoginInput) => {
         phone: "",
         email: "",
         password: ""
-    }
-
-    if(!regex.username.test(input.email)){
-        errors.email = "Correo Inválido"
     }
 
     if(!regex.password.test(input.password)){

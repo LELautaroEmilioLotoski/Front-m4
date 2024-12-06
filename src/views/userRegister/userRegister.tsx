@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { validateLogin } from "@/helpers/validate";
+import { validateLogin, validateRegister } from "@/helpers/validate";
 import Swal from "sweetalert2";
 
 const UserRegister = () => {
@@ -36,7 +36,7 @@ const UserRegister = () => {
         ...prevValues,
         [name]: value,
       };
-      setErrors(validateLogin(updatedValues));
+      setErrors(validateRegister(updatedValues));
       return updatedValues;
     });
   };
