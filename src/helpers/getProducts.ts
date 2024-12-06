@@ -13,11 +13,6 @@ export async function fetchProducts(): Promise<IProducts[]> {
       throw new Error("API URL for products is not defined");
     }
 
-
-    if (!response.ok) {
-      throw new Error(`API responded with status: ${response.status}`);
-    }
-
     const res: IProducts[] = await response.json();
     return res;
   } catch (error) {
